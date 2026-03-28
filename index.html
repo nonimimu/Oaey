@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>pinkjujapipi</title>
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+:root{
+/* ปรับโทนสีตามบรีฟ: ดำขาว (คงความ Glow ของร้านเดิมไว้) */
+--bg:        #0a0a0a;
+--bg2:       #121212;
+--card:      #1a1a1a;
+--card2:     #222222;
+--card3:     #2a2a2a;
+
+--pink:      #ffffff; /* เปลี่ยนเน้นขาว */
+--pink2:     #e0e0e0;
+--pink3:     #cccccc;
+
+--pink-dim:  rgba(255,255,255,0.05);
+--pink-glow: rgba(255,255,255,0.35);
+--purple:    #444444;
+--purple2:   #333333;
+
+--txt:       #ffffff;
+--txt2:      #bbbbbb;
+--txt3:      #888888;
+--dim:       #222222;
+
+--border:    rgba(255,255,255,0.18);
+--border2:   rgba(255,255,255,0.08);
+
+--radius:    18px;
+--radius-sm: 12px;
+}
+
+html{scroll-behavior:smooth;background:#000000;}
+
+body{
+background-color: #000000 !important;
+background: var(--bg);
+color: var(--txt);
+font-family: 'Mitr', sans-serif;
+min-height: 100vh;
+overflow-x: hidden;
+font-size: 15.5px;
+line-height: 1.75;
+}
+
+/* ── WRAP ── */
+.wrap{
+position: relative; z-index: 10;
+background: #0a0a0a;
+max-width: 480px;
+margin: 0 auto;
+padding: 0 0 80px;
+position: relative;
+z-index: 1;
+}
+
+/* ── HERO HEADER ── */
+.hero{
+position: relative;
+padding: 52px 24px 40px;
+text-align: center;
+overflow: hidden;
+}
+
+.hero-badge{
+display: inline-flex; align-items: center; gap: 6px;
+background: var(--pink-dim);
+border: 1px solid var(--border);
+border-radius: 30px;
+padding: 5px 14px;
+font-size: 0.75rem;
+color: var(--pink);
+letter-spacing: 1.5px;
+text-transform: uppercase;
+margin-bottom: 18px;
+font-family: 'Mitr', sans-serif;
+}
+
+.hero-title{
+font-family: 'Mitr', sans-serif;
+font-size: 2.6rem;
+font-weight: 500;
+letter-spacing: 2px;
+line-height: 1.1;
+margin-bottom: 10px;
+}
+.hero-title .w1{ color: #ffffff; }
+.hero-title .w2{
+color: var(--pink);
+text-shadow:
+0 0 20px rgba(255,255,255,0.5),
+0 0 40px rgba(255,255,255,0.2);
+}
+.hero-title .w3{ color: #ffffff; }
+
+.hero-sub{
+color: var(--txt2);
+font-size: 0.88rem;
+letter-spacing: 0.5px;
+margin-bottom: 28px;
+}
+
+.hero-fb-btn{
+display: inline-flex; align-items: center; gap: 8px;
+padding: 12px 24px;
+background: linear-gradient(135deg, #ffffff, #888888);
+border-radius: 30px;
+color: #000;
+text-decoration: none;
+font-size: 0.85rem;
+font-weight: 600;
+letter-spacing: 0.5px;
+box-shadow: 0 4px 20px rgba(255,255,255,0.2);
+transition: all .3s;
+}
+.hero-fb-btn:hover{
+transform: translateY(-2px);
+box-shadow: 0 6px 28px rgba(255,255,255,0.3);
+}
+
+/* ── GLOW DIVIDER ── */
+.g-divider{
+height: 1px;
+margin: 0 24px;
+background: linear-gradient(90deg, transparent, #fff, #444, #fff, transparent);
+box-shadow: 0 0 10px rgba(255,255,255,0.2);
+opacity: 0.5;
+}
+
+/* ── SECTION ── */
+.section{ padding: 28px 16px 0; }
+
+.sec-label{
+display: flex; align-items: center; gap: 10px;
+margin-bottom: 14px;
+}
+.sec-label-dot{
+width: 8px; height: 8px; border-radius: 50%;
+background: var(--pink);
+box-shadow: 0 0 8px var(--pink);
+flex-shrink: 0;
+}
+.sec-label-text{
+font-family: 'Mitr', sans-serif;
+font-size: 0.9rem;
+font-weight: 500;
+letter-spacing: 1.5px;
+color: var(--pink);
+text-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+.card{
+background: var(--card);
+border: 1px solid var(--border2);
+border-radius: var(--radius);
+padding: 20px;
+margin-bottom: 12px;
+position: relative;
+overflow: hidden;
+transition: border-color .3s, box-shadow .3s;
+box-shadow: 0 2px 20px rgba(0,0,0,0.4);
+}
+.card::after{
+content:'';
+position:absolute; top:0; left:20%; right:20%; height:1px;
+background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+}
+
+.card-head{
+font-family: 'Mitr', sans-serif;
+font-size: 1rem;
+font-weight: 500;
+color: var(--txt);
+margin-bottom: 14px;
+display: flex; align-items: center; gap: 8px;
+}
+.card-head-icon{
+width: 30px; height: 30px; border-radius: 8px;
+background: var(--pink-dim);
+border: 1px solid var(--border);
+display: flex; align-items: center; justify-content: center;
+font-size: 0.9rem; flex-shrink: 0;
+}
+
+.work-chips{ display: flex; flex-direction: column; gap: 8px; }
+.work-chip{
+display: flex; align-items: center; gap: 12px;
+background: var(--card2);
+border: 1px solid var(--border2);
+border-radius: var(--radius-sm);
+padding: 12px 16px;
+font-size: 0.88rem; color: var(--txt);
+transition: all .3s;
+}
+.work-chip:hover{
+border-color: var(--border);
+background: var(--card3);
+transform: translateX(4px);
+}
+.chip-ico{
+width: 36px; height: 36px; border-radius: 10px;
+background: var(--pink-dim);
+border: 1px solid var(--border);
+display: flex; align-items: center; justify-content: center;
+font-size: 1.1rem; flex-shrink: 0;
+}
+
+.price-hero{
+background: #111;
+border: 1px solid rgba(255,255,255,0.1);
+border-radius: var(--radius);
+padding: 22px 20px;
+margin-bottom: 12px;
+text-align: center;
+}
+.price-hero-amt{
+font-family: 'Mitr', sans-serif;
+font-size: 3.5rem; font-weight: 500;
+color: var(--pink);
+text-shadow: 0 0 20px rgba(255,255,255,0.4);
+line-height: 1;
+margin-bottom: 4px;
+}
+
+.step-list{ display: flex; flex-direction: column; gap: 0; }
+.step-item{ display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--border2); }
+.step-num{
+width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
+background: #fff;
+display: flex; align-items: center; justify-content: center;
+font-family: 'Mitr', sans-serif; font-size: 0.9rem; font-weight: 600; color: #000;
+}
+.step-body{ font-size: 0.88rem; color: var(--txt); line-height: 1.65; padding-top: 5px; }
+
+.rule-item{ display: flex; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--border2); font-size: 0.88rem; }
+.rule-dot{ width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; background: #fff; margin-top: 8px; }
+
+.link-btn{
+display: inline-flex; align-items: center; gap: 8px;
+padding: 10px 18px;
+border: 1px solid var(--border);
+border-radius: 30px;
+color: #fff;
+text-decoration: none;
+font-size: 0.83rem; font-weight: 500;
+background: var(--pink-dim);
+transition: all .3s;
+margin: 3px;
+}
+
+.contact-item{
+display: flex; align-items: center; gap: 14px;
+background: var(--card);
+border: 1px solid var(--border2);
+border-radius: var(--radius-sm);
+padding: 14px 16px;
+text-decoration: none;
+transition: all .3s;
+}
+
+.footer{
+background: #0a0a0a;
+text-align: center;
+padding: 40px 24px 20px;
+color: var(--txt3);
+font-size: 0.8rem;
+}
+.hl{ color: #fff; font-weight: 500; text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-badge">✦ web design studio</div>
+    <div class="hero-title">
+      <span class="w1">pink</span><span class="w2">juja</span><span class="w3">pipi</span>
+    </div>
+    <p class="hero-sub">ร้านจูรับทำเว็บครบวงจรนะแม่น้า⭐️</p>
+    <a href="https://www.facebook.com/profile.php?id=61554192600355" target="_blank" class="hero-fb-btn">
+      📘 ติดต่อสอบถาม
+    </a>
+  </div>
+
+  <div class="g-divider"></div>
+
+  <div class="section">
+    <div class="sec-label"><div class="sec-label-dot"></div><div class="sec-label-text">🎨 งานที่รับทำ</div></div>
+    <div class="work-chips">
+      <div class="work-chip"><div class="chip-ico">💎</div>เว็บแอพพรีเมียม</div>
+      <div class="work-chip"><div class="chip-ico">🎮</div>เว็บรับเติมเกมส์</div>
+      <div class="work-chip"><div class="chip-ico">🪧</div>เว็บรับทำป้าย</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-label"><div class="sec-label-dot"></div><div class="sec-label-text">⭐️ ตัวอย่างงาน</div></div>
+    <div class="card" style="text-align: center;">
+      <p style="font-size:0.85rem; margin-bottom: 15px; color: var(--txt2);">คลิกเพื่อดูผลงานที่ผ่านมา</p>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 5px;">
+        <a href="https://julie-vwb.github.io/pinkjulie-land/" target="_blank" class="link-btn">🔗 pinkjulie-land</a>
+        <a href="https://julie-vwb.github.io/mahatep-shop/" target="_blank" class="link-btn">🔗 mahatep-shop</a>
+        <a href="https://julie-vwb.github.io/cxllmestore-shop/" target="_blank" class="link-btn">🔗 cxllmestore-shop</a>
+        <a href="https://julie-vwb.github.io/cooper-shop/" target="_blank" class="link-btn">🔗 cooper-shop</a>
+        <a href="https://julie-vwb.github.io/babybear-design/" target="_blank" class="link-btn">🔗 babybear-design</a>
+        <a href="https://julie-vwb.github.io/tanewcutie-design/" target="_blank" class="link-btn">🔗 tanewcutie-design</a>
+        <a href="https://julie-vwb.github.io/meow-font/" target="_blank" class="link-btn">🔗 meow-font</a>
+        <a href="https://julie-vwb.github.io/waray-design/" target="_blank" class="link-btn">🔗 waray-design</a>
+        <a href="https://julie-vwb.github.io/luna-webstudio/" target="_blank" class="link-btn">🔗 luna-webstudio</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-label"><div class="sec-label-dot"></div><div class="sec-label-text">📋 ขั้นตอนการสั่ง</div></div>
+    <div class="card">
+      <div class="step-list">
+        <div class="step-item"><div class="step-num">1</div><div class="step-body"><strong>กรอกฟอร์ม</strong> เขียนรายละเอียดร้านค้า</div></div>
+        <div class="step-item"><div class="step-num">2</div><div class="step-body">ใส่ลิงก์ <strong>ตัวอย่างงาน</strong>มาให้พร้อม หากมีโลโก้ให้แนบมา</div></div>
+        <div class="step-item"><div class="step-num">3</div><div class="step-body">ส่งงานให้เช็ค · แจ้งยอด · <strong>ชำระเงิน</strong></div></div>
+        <div class="step-item"><div class="step-num">4</div><div class="step-body"><strong>รอรับลิงก์</strong> ได้เลยค่า ✨</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-label"><div class="sec-label-dot"></div><div class="sec-label-text">⏱ เงื่อนไขเวลา</div></div>
+    <div class="price-hero">
+      <div class="price-hero-amt" style="font-size: 2rem;">4-8 ชั่วโมง</div>
+      <div style="font-size:0.85rem; color:var(--txt2); margin-top:5px;">ระยะเวลาปกติ (ขึ้นอยู่กับคิว)</div>
+      <div style="margin-top:10px; color:#fff; font-weight:500;">⚡ งานเร่ง *2 ของราคา</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-label"><div class="sec-label-dot"></div><div class="sec-label-text">📍 กฎของร้าน</div></div>
+    <div class="card">
+      <div class="rule-list">
+        <div class="rule-item"><div class="rule-dot"></div><div>ถ้าโอนเงินแล้วทางร้าน <span class="hl">ไม่คืนเงินทุกกรณี</span> นะคะ</div></div>
+        <div class="rule-item"><div class="rule-dot"></div><div>หากยกเลิกหลังส่งบรีฟมาแล้ว และงานเริ่มไปแล้ว คืนแค่ <span class="hl">50%</span></div></div>
+        <div class="rule-item"><div class="rule-dot"></div><div>หากยกเลิกหลังจากเช็คงาน = <span class="hl">ไม่คืน</span> และส่งงานตามปกติ</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-label"><div class="sec-label-dot"></div><div class="sec-label-text">📱 ช่องทางการติดต่อ</div></div>
+    <div class="contact-grid">
+      <a href="https://www.facebook.com/profile.php?id=61554192600355" target="_blank" class="contact-item">
+        <div class="contact-icon">📘</div>
+        <div class="contact-info">
+          <div class="ci-label">Facebook</div>
+          <div class="ci-val">pinkjujapipi</div>
+        </div>
+      </a>
+      <a href="https://line.me/ti/p/LfBtdhlrVa" target="_blank" class="contact-item">
+        <div class="contact-icon">💚</div>
+        <div class="contact-info">
+          <div class="ci-label">Line</div>
+          <div class="ci-val">คลิกเพื่อเพิ่มเพื่อน</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div style="height:1px; background: var(--border2); margin-bottom: 20px;"></div>
+    <div style="font-family:'Mitr'; font-size:1.2rem; font-weight:500; color:#fff; margin-bottom:5px;">✦ pinkjujapipi ✦</div>
+    <div>Design Studio · Black & White Theme</div>
+  </div>
+
+</div>
+</body>
+</html>
